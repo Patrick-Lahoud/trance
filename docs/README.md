@@ -1,4 +1,4 @@
-# Trance Promotional Website (site-b)
+# Trance Promotional Website (docs)
 
 A production-ready, dependency-free promotional site for **Trance**, the Windows
 focus companion. Built as a fully isolated static site in `site-b/`; nothing
@@ -10,7 +10,7 @@ Static files only, no build step, no dependencies.
 
 ```bash
 # local preview
-npx http-server site-b -p 8080 -c-1
+npx http-server docs -p 8080 -c-1
 # → http://127.0.0.1:8080
 ```
 
