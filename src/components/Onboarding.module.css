@@ -1,0 +1,803 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.82);
+  color: var(--text-primary);
+  pointer-events: auto;
+  -webkit-app-region: no-drag;
+}
+
+.tutorialShell {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  max-height: none;
+  overflow: auto;
+  padding: 30px 42px 34px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  -webkit-app-region: no-drag;
+}
+
+.skipButton {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  padding: 6px 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.skipButton:hover,
+.skipLink:hover {
+  color: var(--text-primary);
+}
+
+.brandMark {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.progressRow {
+  display: flex;
+  gap: 4px;
+  margin-top: 22px;
+}
+
+.progressRow span {
+  width: 24px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--border);
+}
+
+.progressActive {
+  background: var(--text-primary) !important;
+}
+
+.welcomeScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 520px;
+  padding-top: 140px;
+  text-align: center;
+}
+
+.welcomeScreen small,
+.stepLabel,
+.doThisBox span,
+.panelEyebrow {
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.welcomeScreen h1 {
+  margin: 14px 0 8px;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.welcomeScreen p {
+  margin-bottom: 26px;
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+
+.primaryButton,
+.secondaryButton {
+  -webkit-app-region: no-drag;
+  pointer-events: auto;
+  padding: 9px 18px;
+  border-radius: 50px;
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.primaryButton {
+  border: 1px solid var(--text-primary);
+  background: var(--text-primary);
+  color: var(--bg);
+}
+
+.primaryButton:hover:not(:disabled) {
+  opacity: 0.84;
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.secondaryButton {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.secondaryButton:hover {
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+.primaryButton:active:not(:disabled),
+.secondaryButton:active {
+  transform: scale(0.96);
+}
+
+.skipLink {
+  -webkit-app-region: no-drag;
+  pointer-events: auto;
+  margin-top: 12px;
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.stepLayout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(420px, 1.2fr);
+  align-items: center;
+  gap: 52px;
+  min-height: 520px;
+  margin-top: 34px;
+}
+
+.instructionColumn h1 {
+  max-width: 350px;
+  margin: 12px 0 20px;
+  font-size: 31px;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.doThisBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 360px;
+  padding: 14px 15px;
+  border: 1px solid var(--text-primary);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.doThisBox strong {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.actionStatus {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.actionStatus i {
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--text-secondary);
+  border-radius: 50%;
+}
+
+.actionDone {
+  color: #6BFFB2;
+}
+
+.actionDone i {
+  border-color: #6BFFB2;
+  background: #6BFFB2;
+}
+
+.navigationRow {
+  display: flex;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.demoColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding-bottom: 8px;
+}
+
+.demoInstruction {
+  width: 300px;
+  max-width: 100%;
+  color: var(--text-secondary);
+  font-size: 10px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.realWidget {
+  position: relative;
+  width: 300px;
+  height: 190px;
+  transform: translateZ(0);
+  overflow: hidden;
+  flex: 0 0 auto;
+  margin-bottom: 4px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.realWidgetCompact {
+  width: 140px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+.demoDragBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+}
+
+.widgetTopControls {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  right: 6px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.demoX {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  font-size: 10px;
+}
+
+.widgetButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.widgetButtons button,
+.widgetTabs button,
+.breakChoices button,
+.primarySmall {
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.widgetButtons button:hover,
+.widgetTabs button:hover,
+.breakChoices button:hover {
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+.startWidgetScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 5px;
+}
+
+.startWidgetScreen strong {
+  font-size: 22px;
+}
+
+.startWidgetScreen span {
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.primarySmall {
+  border: none;
+  background: var(--text-primary);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.widgetPanel {
+  height: 150px;
+  padding: 34px 14px 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.currentTaskLine,
+.taskCurrent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-primary);
+  font-size: 11px;
+}
+
+.currentTaskLine span,
+.taskCurrent span {
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.simpleLine {
+  position: relative;
+  height: 68px;
+  margin: 8px 0 6px;
+  border-bottom: 1px solid var(--border);
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 21px, var(--border) 22px);
+}
+
+.simpleLine::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--text-primary);
+  transform: skewY(2deg);
+}
+
+.simpleLine i {
+  position: absolute;
+  top: 20px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-primary);
+}
+
+.simpleLine i:nth-child(1) { left: 2%; }
+.simpleLine i:nth-child(2) { left: 34%; }
+.simpleLine i:nth-child(3) { left: 65%; }
+.simpleLine i:nth-child(4) { right: 1%; }
+
+.taskLinePink::before,
+.taskLinePink i {
+  background: #FF6BB5;
+}
+
+.widgetStats {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.widgetStats span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.widgetStats span:not(:first-child) {
+  align-items: flex-end;
+}
+
+.widgetStats b {
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.widgetStats small {
+  color: var(--text-secondary);
+  font-size: 8px;
+}
+
+.widgetTabs {
+  display: flex;
+  height: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.widgetTabs button {
+  flex: 1;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.widgetTabActive {
+  color: var(--text-primary) !important;
+  box-shadow: inset 0 2px var(--text-primary);
+}
+
+.taskPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.taskCurrent {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.taskInputLine {
+  display: flex;
+  align-items: center;
+}
+
+.fakeInput {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.colorNotice {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #FF6BB5;
+  font-size: 10px;
+}
+
+.colorNotice i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FF6BB5;
+}
+
+.breakChoices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.breakChoices button {
+  padding: 10px 0;
+}
+
+.breakTip {
+  color: var(--text-secondary);
+  font-size: 10px;
+}
+
+.breakScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px;
+}
+
+.breakLabel {
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.breakClock {
+  color: var(--text-primary);
+  font-size: 34px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.unfullscreenButton {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  padding: 2px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.unfullscreenButton svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.compactStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.compactStatus small {
+  margin-top: 2px;
+  color: #FF6BB5;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.realDashboard {
+  width: 390px;
+  min-height: 270px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.dashboardHeader {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 15px 10px;
+  color: var(--text-secondary);
+  font-size: 9px;
+}
+
+.dashboardHeader strong {
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.dashboardHeader button {
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.dashboardTabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+
+.dashboardTabs button {
+  flex: 1;
+  padding: 9px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.dashboardTabActive {
+  color: var(--text-primary) !important;
+  border-bottom-color: var(--text-primary) !important;
+}
+
+.dashboardBody,
+.settingsDemo {
+  padding: 15px;
+}
+
+.dashboardBody h3 {
+  margin-bottom: 11px;
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.dashboardGraph,
+.trendGraph {
+  position: relative;
+  height: 100px;
+  border-bottom: 1px solid var(--border);
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, var(--border) 32px);
+}
+
+.dashboardGraph::before,
+.trendGraph::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: var(--text-primary);
+  transform: rotate(-3deg);
+}
+
+.dashboardGraph i,
+.trendGraph i {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-primary);
+}
+
+.dashboardGraph i:nth-child(1) { left: 5%; top: 35px; }
+.dashboardGraph i:nth-child(2) { left: 50%; top: 30px; }
+.dashboardGraph i:nth-child(3) { right: 5%; top: 23px; }
+
+.dashboardMetrics {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 11px;
+}
+
+.dashboardMetrics b {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.dashboardMetrics b:last-child {
+  align-items: flex-end;
+}
+
+.dashboardMetrics small {
+  color: var(--text-secondary);
+  font-size: 9px;
+}
+
+.taskMetric,
+.sessionMetric {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 10px;
+}
+
+.taskMetric b,
+.sessionMetric b {
+  margin-left: auto;
+  color: var(--text-primary);
+}
+
+.taskMetric i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4A9EFF;
+}
+
+.pinkDot {
+  background: #FF6BB5 !important;
+}
+
+.barChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 13px;
+  height: 70px;
+  margin-top: 9px;
+}
+
+.barChart i {
+  width: 25px;
+  border-radius: 4px 4px 0 0;
+  background: #4A9EFF;
+}
+
+.barChart i:nth-child(1) { height: 44px; }
+.barChart i:nth-child(2) { height: 29px; background: #FF6BB5; }
+.barChart i:nth-child(3) { height: 57px; background: #FFB86B; }
+
+.trendGraph i:nth-child(1) { left: 5%; top: 58px; }
+.trendGraph i:nth-child(2) { left: 35%; top: 50px; }
+.trendGraph i:nth-child(3) { left: 66%; top: 38px; }
+.trendGraph i:nth-child(4) { right: 5%; top: 26px; }
+
+.settingsDemo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.settingsDemo strong {
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+@media (max-width: 760px) {
+  .overlay {
+    align-items: flex-start;
+    overflow: auto;
+  }
+
+  .tutorialShell {
+    width: 100%;
+    min-height: auto;
+    max-height: none;
+    padding: 24px 20px 26px;
+  }
+
+  .stepLayout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    min-height: auto;
+    margin-top: 34px;
+  }
+
+  .instructionColumn h1 {
+    font-size: 26px;
+  }
+
+  .realWidget,
+  .realDashboard {
+    width: min(100%, 390px);
+  }
+
+  .demoInstruction {
+    width: min(100%, 390px);
+  }
+}

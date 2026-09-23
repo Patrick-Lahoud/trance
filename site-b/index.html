@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trance · A minimalist path to efficiency</title>
+  <meta name="description" content="Trance is a Windows desktop companion that watches for the moment attention leaves the task and shows you your session as it happened. Locally, quietly, without accounts or cloud." />
+  <meta name="color-scheme" content="dark light" />
+  <meta property="og:title" content="Trance · A minimalist path to efficiency" />
+  <meta property="og:description" content="Trance helps you notice the moment your attention leaves the work. Free for Windows." />
+  <meta name="theme-color" content="#050505" />
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css?v=29" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Trance home">
+        <span class="trance-icon trance-icon-nav" aria-hidden="true"></span>
+        <span class="brand-name">Trance</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#widget">The Widget</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <div class="nav-right">
+        <a class="nav-dl" href="#download" data-dl>Download<span class="hide-sm"> for Windows</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="hero">
+      <div class="hero-blend" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hero-copy reveal">
+          <h1>Stop losing the hours you&nbsp;meant to keep.</h1>
+          <p class="lede">The scroll was only supposed to take a minute. Trance helps you snap out of it. It runs quietly in the corner of your screen, gently letting you know the moment you slip into a trance so you can get back on track.</p>
+          <div class="cta-row">
+            <a class="btn btn-solid" href="#download" data-dl>Download Trance for Windows</a>
+            <a class="btn btn-ghost" href="#how">See how Trance works</a>
+          </div>
+        </div>
+
+        <div class="hero-stage reveal">
+          <div class="desktop" data-desktop="hero">
+            <div class="desktop-wall">
+              <div class="desk-icons">
+                <span class="desk-icon"><i class="di di-folder"></i></span>
+                <span class="desk-icon"><i class="di di-doc"></i></span>
+                <span class="desk-icon"><i class="di di-terminal"></i></span>
+              </div>
+              <div class="desktop-clock"><span id="desk-clock">9:41</span><small>09/18/2026</small></div>
+            </div>
+            <div class="hero-app hero-editor active" id="hero-editor" aria-hidden="true">
+              <div class="app-bar"><i></i><i></i><i></i><span>chapter_04.docx</span></div>
+              <div class="doc-scroll" id="doc-scroll" style="overflow-y: auto; scrollbar-width: none;">
+                <div class="doc-text"><span id="doc-text"></span><span class="caret" aria-hidden="true"></span></div>
+              </div>
+            </div>
+            <div class="hero-app hero-code" id="hero-code" aria-hidden="true">
+              <div class="app-bar code-bar"><i></i><i></i><i></i><span>focus.ts</span></div>
+              <div class="code-tabs"><span class="ctab">focus.ts</span></div>
+              <div class="code-body">
+                <div class="gutter" id="code-gutter" aria-hidden="true"></div>
+                <div class="code-scroll" id="code-scroll" style="overflow-y: auto; scrollbar-width: none;">
+                  <pre class="code-text"><code id="code-text"></code><span class="caret caret-code" aria-hidden="true"></span></pre>
+                </div>
+              </div>
+            </div>
+            <div class="hero-widget-anchor" id="hero-widget-anchor"><!-- widget injected --></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CENTRAL STORY (white) ================= -->
+    <section class="light" id="how">
+      <div class="wrap">
+        <div class="story">
+          <h2 class="statement reveal">Being at your desk isn’t the same as being with the work.</h2>
+          <div class="story-copy reveal">
+            <p class="seq" style="--i:0">Nobody decides to lose an afternoon.</p>
+            <p class="seq" style="--i:1">You open a tab. Check something. Watch one video. Come back later.</p>
+            <p class="seq" style="--i:2">The minutes are only part of the problem. What disappears is the concentration between them.</p>
+            <p class="seq seq-last" style="--i:3">Trance turns that invisible gap into something you can see.</p>
+          </div>
+        </div>
+
+        <div class="rule" role="separator" aria-hidden="true"></div>
+
+        <!-- WHAT TRANCE SEES -->
+        <div class="sees" id="sees">
+          <div class="sees-head reveal">
+            <h3>What Trance sees</h3>
+            <p>Trance reads activity signals: input recency, cursor movement, the foreground window title. Never the content of your work. Step through the sequence below to see how it responds.</p>
+          </div>
+          <div class="sees-grid reveal">
+            <div class="sees-widget">
+              <div class="sees-widget-inner" id="sees-widget"><!-- widget injected --></div>
+            </div>
+            <div class="sees-side">
+              <ol class="sees-steps" id="sees-steps" aria-label="Attention states">
+                <li data-state="focused" class="active" role="button" tabindex="0"><span class="dot dot-focus"></span><div><strong>Working</strong><small>The line holds its level and the efficiency keeps counting up.</small></div></li>
+                <li data-state="restless" role="button" tabindex="0"><span class="dot dot-restless"></span><div><strong>Still</strong><small>After a few seconds without input, the border eases to yellow, a small signal that your attention may have shifted.</small></div></li>
+                <li data-state="unfocused" role="button" tabindex="0"><span class="dot dot-unfocused"></span><div><strong>Drifting</strong><small>Longer still and it turns red. Trance doesn’t punish the break. It simply shows that your activity changed.</small></div></li>
+                <li data-state="back" role="button" tabindex="0"><span class="dot dot-back"></span><div><strong>Moving again</strong><small>One input and the status returns to normal. No lecture, no penalty.</small></div></li>
+              </ol>
+              <button class="btn btn-ghost btn-sm" id="sees-play" type="button" style="margin-top:14px">Play the sequence</button>
+            </div>
+          </div>
+          <p class="accuracy-note reveal">This is activity-aware attention feedback: Trance reacts to <em>signals</em>, never to screen contents, keystrokes, or anything medical. Awareness, not surveillance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WIDGET SHOWCASE (dark) ================= -->
+    <section class="dark" id="widget">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <h2>A small window. A lot of awareness.</h2>
+          <p class="sec-sub">Everything you need. Nothing in the way. Hover to expand it, drag it anywhere, collapse it to a pill.</p>
+        </div>
+
+        <div class="showcase reveal">
+          <div class="show-widget-wrap" id="showcase-widget"><!-- widget injected --></div>
+          <div class="show-note">
+            <p class="show-hint">↑ Hover it, drag it, switch tabs, start a break.</p>
+            <div class="state-strip" id="state-strip" aria-hidden="true">
+              <span data-state="idle" class="on">Idle</span><span data-state="working">Working</span><span data-state="task">Task</span><span data-state="break">Break</span><span data-state="focus">Focus Mode</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trio reveal">
+          <div class="trio-item">
+            <h4>Unobtrusive by design</h4>
+            <p>Collapsed by default, expanding only on hover. It lives at the edge of your desktop and stays out of the work.</p>
+          </div>
+          <div class="trio-item">
+            <h4>Yours to place</h4>
+            <p>Drag the widget anywhere on screen. The position is remembered between sessions, and the tray icon always brings it back.</p>
+          </div>
+          <div class="trio-item">
+            <h4>Focus Mode</h4>
+            <p>When you’ve seen enough, the widget compresses to a status pill: the state and the task. Nothing else.</p>
+          </div>
+        </div>
+
+        <!-- TASK COLORS -->
+        <div class="colors" id="colors">
+          <div class="sec-head reveal">
+            <h2>Give the work a name.</h2>
+            <p class="sec-sub">Every task gets a color of its own, and the efficiency line changes color at the exact moment the task changes. Color is data here, not decoration.</p>
+          </div>
+          <div class="colors-panel reveal">
+            <div class="colors-strip" id="task-strip" role="img" aria-label="One session drawn as a line that changes color each time the task changes"></div>
+            <div class="colors-rows" id="task-rows"></div>
+          </div>
+        </div>
+
+        <!-- BREAK (white) -->
+        <div class="break-sec light-block" id="break">
+          <div class="break-grid">
+            <div class="break-copy reveal">
+              <h2>A break is not failure.</h2>
+              <p class="break-lede">It is a separate part of the session.</p>
+              <p>Trance tracks breaks separately. Time on a break never counts against your efficiency. The metric simply holds steady while you’re away, then continues where it left off.</p>
+              <div class="break-facts">
+                <span>1 to 60 minute presets</span><span>custom durations</span><span>never counted against efficiency</span>
+              </div>
+            </div>
+            <div class="break-stage reveal" aria-label="A Trance break timer counting down">
+              <span class="bt-label">Break</span>
+              <span class="bt-count" id="bt-count">5:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOCUS MODE -->
+        <div class="focusmode reveal" id="focusmode">
+          <div class="sec-head center">
+            <h2>When you’ve seen enough, make it smaller.</h2>
+          </div>
+          <div class="focus-demo">
+            <button class="btn btn-ghost" id="focus-toggle" type="button">Enter Focus Mode</button>
+            <div class="focus-stage" id="focus-widget"><!-- widget injected --></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DASHBOARD (dark) ================= -->
+    <section class="dark" id="dashboard">
+      <div class="wrap">
+        <div class="rule rule-dark" role="separator" aria-hidden="true"></div>
+        <div class="sec-head reveal">
+          <h2>The session ends. The picture remains.</h2>
+          <p class="sec-sub">Trance turns the session into something you can actually understand. A full desktop window, not a web page.</p>
+        </div>
+
+        <div class="dash reveal">
+          <div class="win" id="dash-window">
+            <div class="win-bar">
+              <span class="win-app" aria-hidden="true"><span class="trance-icon trance-icon-xs"></span></span>
+              <span class="win-title">Trance Analysis</span>
+              <span class="win-ctl" aria-hidden="true"><i class="wc-min"></i><i class="wc-max"></i><i class="wc-x"></i></span>
+            </div>
+            <div class="dash-chrome">
+              <div class="dash-header-row">
+                <button class="dash-back" type="button" tabindex="-1">← Back</button>
+                <h3 class="dash-title">Trance Analysis</h3>
+                <button class="dash-settings" type="button" tabindex="-1">Settings</button>
+              </div>
+              <nav class="dash-tabs" role="tablist" aria-label="Dashboard views">
+                <button class="dash-tab on" data-dashtab="timeline" role="tab" aria-selected="true" type="button">Timeline</button>
+                <button class="dash-tab" data-dashtab="insights" role="tab" aria-selected="false" type="button">Insights</button>
+                <button class="dash-tab" data-dashtab="trends" role="tab" aria-selected="false" type="button">Trends</button>
+              </nav>
+            </div>
+            <div class="dash-content">
+              <!-- TIMELINE -->
+              <div class="dash-pane on" data-pane="timeline">
+                <div class="range-card">
+                  <div class="range-head">
+                    <h4>Total timeline</h4>
+                    <span class="range-meta" id="rt-meta"></span>
+                  </div>
+                  <div class="range-stats">
+                  <div class="rs"><b id="rt-eff"></b><span>Efficiency</span></div>
+                  <div class="rs"><b id="rt-breakpct"></b><span>Break</span></div>
+                  <div class="rs"><b id="rt-breaktime"></b><span>Break time</span></div>
+                  </div>
+                  <div class="range-chart" id="rt-chart"></div>
+                  <div class="legend" id="rt-legend"></div>
+                </div>
+                <div class="range-card">
+                  <div class="range-head">
+                    <h4>Last hour</h4>
+                    <span class="range-meta" id="rh-meta"></span>
+                  </div>
+                  <div class="range-stats">
+                  <div class="rs"><b id="rh-eff"></b><span>Efficiency</span></div>
+                  <div class="rs"><b id="rh-breakpct"></b><span>Break</span></div>
+                  <div class="rs"><b id="rh-breaktime"></b><span>Break time</span></div>
+                  </div>
+                  <div class="range-chart" id="rh-chart"></div>
+                  <div class="legend" id="rh-legend"></div>
+                </div>
+              </div>
+
+              <!-- INSIGHTS -->
+              <div class="dash-pane" data-pane="insights">
+                <div class="range-card">
+                  <h4 class="chart-title">Tasks</h4>
+                  <div class="subject-table" id="insight-table"></div>
+                </div>
+                <div class="range-card">
+                  <h4 class="chart-title">Task time comparison</h4>
+                  <div id="insight-time"></div>
+                </div>
+                <div class="range-card">
+                  <h4 class="chart-title">Task efficiency comparison</h4>
+                  <div id="insight-eff"></div>
+                </div>
+              </div>
+
+              <!-- TRENDS -->
+              <div class="dash-pane" data-pane="trends">
+                <div class="trend-summary">
+                  <div class="stat"><div class="stat-value" id="ts-sessions"></div><div class="stat-label">Sessions</div></div>
+                  <div class="stat"><div class="stat-value" id="ts-total"></div><div class="stat-label">Total tracked</div></div>
+                  <div class="stat"><div class="stat-value" id="ts-best"></div><div class="stat-label">Best session</div></div>
+                  <div class="stat"><div class="stat-value" id="ts-dir"></div><div class="stat-label" id="ts-dir-label">Direction</div></div>
+                </div>
+                <div class="range-card">
+                  <h4 class="chart-title">Efficiency Across Sessions</h4>
+                  <div id="trend-line"></div>
+                </div>
+                <div class="trend-row">
+                  <div class="range-card">
+                    <h4 class="chart-title">Lapses</h4>
+                    <div id="trend-lapses"></div>
+                  </div>
+                  <div class="range-card">
+                    <h4 class="chart-title">Avg Focus Streak (s)</h4>
+                    <div id="trend-streak"></div>
+                  </div>
+                </div>
+                <div class="range-card">
+                  <h4 class="chart-title">Session Duration (min)</h4>
+                  <div id="trend-dur"></div>
+                </div>
+                <div class="range-card">
+                  <h4 class="chart-title">Efficiency by Hour of Day</h4>
+                  <div id="trend-hours"></div>
+                </div>
+                <div class="range-card">
+                  <h4 class="chart-title">Task Mastery Across All Sessions</h4>
+                  <div class="subject-table" id="mastery-table"></div>
+                </div>
+                <div class="range-card">
+                  <h4 class="chart-title">All Sessions</h4>
+                  <div class="session-list" id="sessions-list"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="dash-caption">Click the tabs inside the window.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRIVACY (white) ================= -->
+    <section class="light privacy" id="privacy">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <h2>Your work stays yours.</h2>
+          <p class="privacy-big reveal">Everything stays on your device.</p>
+        </div>
+        <ul class="privacy-list">
+          <li class="reveal"><b>No account.</b></li>
+          <li class="reveal"><b>No cloud.</b></li>
+          <li class="reveal"><b>No sync.</b></li>
+          <li class="reveal"><b>No telemetry.</b></li>
+          <li class="reveal"><b>No recording of your work.</b></li>
+        </ul>
+        <div class="privacy-detail reveal">
+          <p>Trance stores session history locally on your device. It observes activity signals: input recency, cursor movement, and the foreground window title when needed for video detection. It does not read the content of your work.</p>
+          <p class="privacy-line">Trance shows patterns, not the private content of your work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRICING (dark, deadpan SaaS parody) ================= -->
+    <section class="pricing" id="pricing">
+      <div class="wrap">
+        <div class="sec-head pricing-head reveal">
+          <h2>Pricing</h2>
+          <p class="pricing-lede reveal">Everything runs on your machine. So everything costs what running on your machine costs.</p>
+        </div>
+        <div class="pricing-cards">
+          <article class="price-card reveal">
+            <p class="pc-tier">FREE</p>
+            <h3>Everything</h3>
+            <p class="pc-price"><b>$0</b><span>forever</span></p>
+            <ul class="pc-feats">
+              <li>The whole app. All of it.</li>
+              <li>Every future update, also free</li>
+              <li>Runs locally, works offline</li>
+              <li>No account, because there is nothing to sign in to</li>
+            </ul>
+            <a class="btn btn-solid pc-btn" href="#download" data-dl>Download Trance</a>
+          </article>
+        </div>
+        <p class="pricing-note reveal">One plan. One price. It has not changed and it will not.</p>
+        <p class="pricing-fine reveal">That is the entire pricing page. Go work on something.</p>
+      </div>
+    </section>
+
+    <!-- ================= FINAL CTA (dark) ================= -->
+    <section class="final" id="download">
+      <div class="wrap">
+        <span class="trance-icon trance-icon-lg reveal" aria-hidden="true"></span>
+        <h2 class="reveal">A quieter way back to the task.</h2>
+        <div class="cta-row center reveal">
+          <a class="btn btn-solid btn-lg" href="#" data-dl>Download Trance for Windows</a>
+          <a class="btn btn-ghost btn-lg" href="#how">See how Trance works</a>
+        </div>
+        <p class="final-meta reveal">Windows 10 / 11 · NSIS installer · ~85 MB · free</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="trance-icon trance-icon-sm" aria-hidden="true"></span>
+        <span>Trance</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="./privacy-policy.html" id="privacy-link">Privacy Policy</a>
+        <a href="#download" data-dl>Download for Windows</a>
+      </nav>
+      <p class="footer-tag">A minimalist path to efficiency.</p>
+      <a class="footer-oss" href="https://github.com/" rel="noopener">Built open-source with Electron &amp; React.</a>
+    </div>
+  </footer>
+
+  <script>/* one-time self-heal against stale-cached HTML/modules on static hosts */
+    if (!location.search.includes('fresh=1')) { var u = new URL(location); u.searchParams.set('fresh', '1'); location.replace(u); }
+  </script>
+  <script type="module" src="./js/main.js?v=28"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+/* Trance Design Tokens & Global Styles — Black & White */
+
+:root {
+  /* Colors — Pure black & white */
+  --bg: #000000;
+  --surface: #0A0A0A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #888888;
+  --accent: #FFFFFF;
+  --warning: #CCCCCC;
+  --neutral: #555555;
+  --border: #1A1A1A;
+  --break-color: #4A9EFF;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+
+  /* Elevation */
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme='light'] {
+  --bg: #F7F7F5;
+  --surface: #FFFFFF;
+  --text-primary: #171717;
+  --text-secondary: #6B6B6B;
+  --accent: #171717;
+  --warning: #A56A00;
+  --neutral: #777777;
+  --border: #DDDDD8;
+  --break-color: #4A9EFF;
+  --shadow: 0 4px 20px rgba(20, 20, 20, 0.12);
+}
+
+:root[data-reduce-motion='true'] *,
+:root[data-reduce-motion='true'] *::before,
+:root[data-reduce-motion='true'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.01ms !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tutorialWelcomeOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: #000;
+  color: #fff;
+  -webkit-app-region: no-drag;
+}
+
+.tutorialWelcomeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.tutorialWelcomeTitle {
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.tutorialWelcomeSubtitle {
+  color: #fff;
+  font-size: 16px;
+}
+
+.tutorialWelcomeButton,
+.tutorialWelcomeSkip {
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+  font: inherit;
+}
+
+.tutorialWelcomeButton {
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+}
+
+.tutorialWelcomeSkip {
+  border: 0;
+  background: transparent;
+  color: #aaa;
+  font-size: 12px;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Tabular nums for live-updating numbers */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+}

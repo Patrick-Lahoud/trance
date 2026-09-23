@@ -1,0 +1,918 @@
+.dashboard {
+  width: 100%;
+  min-height: inherit;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.backButton {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.backButton:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 0 24px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.headerActions {
+  position: relative;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.settingsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.settingsButton:hover,
+.settingsButton[aria-expanded='true'] {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: var(--bg);
+}
+
+.settingsButton:active {
+  transform: scale(0.96);
+}
+
+.settingsPanel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 292px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  z-index: 20;
+}
+
+.settingsTitle {
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.settingsSection {
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.settingsSection + .settingsSection {
+  margin-top: 16px;
+}
+
+.settingsSectionLabel {
+  margin-bottom: 9px;
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+
+.themeOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.themeOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.themeOption:hover {
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+.themeOption:active {
+  transform: scale(0.985);
+}
+
+.themeOptionActive {
+  background: var(--bg);
+  border-color: var(--text-primary);
+}
+
+.themeRadio {
+  width: 15px;
+  height: 15px;
+  margin-top: 1px;
+  border: 1px solid var(--text-secondary);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.themeOptionActive .themeRadio {
+  border-color: var(--text-primary);
+}
+
+.themeOptionActive .themeRadio::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--text-primary);
+}
+
+.themeOption strong,
+.settingRow strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.themeOption small,
+.settingRow small {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-secondary);
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.settingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 2px;
+}
+
+.toggle {
+  width: 36px;
+  height: 20px;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--bg);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.toggle span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.toggleOn {
+  border-color: var(--text-primary);
+  background: var(--text-primary);
+}
+
+.toggleOn span {
+  background: var(--bg);
+  transform: translateX(16px);
+}
+
+.settingsNote {
+  margin-top: 16px;
+  padding: 10px 11px;
+  border-radius: 11px;
+  background: var(--bg);
+  color: var(--text-secondary);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.privacyLink {
+  display: block;
+  margin-top: 12px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.privacyLink:hover {
+  color: var(--text-primary);
+}
+
+.resetSettingsButton {
+  width: 100%;
+  margin-top: 12px;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 11px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.resetSettingsButton:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.resetSettingsButton:active {
+  transform: scale(0.97);
+}
+
+.replayTutorialButton {
+  width: 100%;
+  margin-top: 7px;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 50px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 11px;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.replayTutorialButton:hover {
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+.replayTutorialButton:active {
+  transform: scale(0.97);
+}
+
+.tabBar {
+  display: flex;
+  align-items: stretch;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 10px 0 12px 0;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.tabBtn:active {
+  transform: scale(0.97);
+}
+
+.backButton:active {
+  transform: scale(0.95);
+}
+
+.sessionRow:active {
+  transform: scale(0.995);
+}
+
+.tabBtn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: transparent;
+  border-radius: 1px;
+  transition: background 0.15s ease;
+}
+
+.tabBtnActive {
+  color: var(--text-primary);
+}
+
+.tabBtnActive::after {
+  background: var(--text-primary);
+}
+
+.tabBtn:hover {
+  color: var(--text-primary);
+}
+
+.content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 24px 24px;
+}
+
+/* Stats row */
+.statsRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 20px;
+}
+
+.statValue {
+  font-size: 32px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* Charts */
+.chartContainer {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.rangeTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.chartTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+/* Insights */
+.insightsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.insightCard {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.insightStat {
+  background: var(--surface);
+}
+
+.insightPattern {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.insightSuggestion {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.insightType {
+  font-size: 16px;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.insightText {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* Empty state */
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+}
+
+.emptyHint {
+  font-size: 13px;
+  margin-top: 8px;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Task legend */
+.taskLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Scrollbar */
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.content::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* Range timeline cards */
+.rangeHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.rangeMeta {
+  font-size: 11px;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.rangeStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.rangeStat {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.rangeStatValue {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.rangeStatLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Trends */
+.trendSummary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.trendRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.trendRow .chartContainer {
+  margin-bottom: 0;
+}
+
+/* All Sessions list */
+.sessionList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sessionItem {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.sessionRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.sessionRow:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.sessionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sessionNameWrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.sessionName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sessionRenameBtn {
+  font-size: 11px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 1px 5px;
+  border-radius: 50px;
+  opacity: 0;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.sessionRow:hover .sessionRenameBtn {
+  opacity: 1;
+}
+
+.sessionRenameBtn:hover {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.sessionDeleteBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  opacity: 0;
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+  flex-shrink: 0;
+}
+
+.sessionRow:hover .sessionDeleteBtn {
+  opacity: 1;
+}
+
+.sessionDeleteBtn:hover {
+  background: var(--surface);
+  color: #FF6B6B;
+}
+
+/* Complete reset */
+.settingsDangerZone {
+  margin-top: 16px;
+  padding: 12px 11px;
+  border: 1px solid rgba(255, 107, 107, 0.35);
+  border-radius: 12px;
+  background: rgba(255, 107, 107, 0.05);
+}
+
+.resetAllDataButton {
+  width: 100%;
+  margin-top: 0;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 107, 107, 0.5);
+  border-radius: 50px;
+  background: transparent;
+  color: #FF6B6B;
+  font-family: var(--font-family);
+  font-size: 11px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.resetAllDataButton:hover {
+  background: rgba(255, 107, 107, 0.08);
+  border-color: #FF6B6B;
+  color: #FF6B6B;
+}
+
+.resetAllDataButton:active {
+  transform: scale(0.97);
+}
+
+.resetAllDataNote {
+  margin-top: 9px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Delete confirmation modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #1E1F22;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modalTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.modalSub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.modalCancelBtn {
+  padding: 4px 16px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.modalCancelBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.modalCancelBtn:active {
+  transform: scale(0.95);
+}
+
+.sessionNameInput {
+  flex: 1;
+  min-width: 0;
+  max-width: 220px;
+  padding: 4px 10px;
+  border: 1px solid var(--text-secondary);
+  border-radius: 50px;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+}
+
+.sessionLive {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6BFFB2;
+  border: 1px solid rgba(107, 255, 178, 0.4);
+  border-radius: 50px;
+  padding: 1px 7px;
+  flex-shrink: 0;
+}
+
+.sessionMeta {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.sessionChevron {
+  font-size: 11px;
+  color: var(--text-secondary);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.sessionChevronOpen {
+  transform: rotate(180deg);
+}
+
+.sessionDetail {
+  padding: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sessionDetail .chartContainer {
+  margin-bottom: 0;
+}
+
+.sessionStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.sessionDetail .subjectTable {
+  margin-top: 0;
+}
+
+/* Subject tables */
+.subjectTable {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.subjectRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.subjectName {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subjectTime {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.subjectShare {
+  font-size: 12px;
+  color: var(--text-secondary);
+  width: 96px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.subjectFocus {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  width: 96px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .rangeStats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .trendSummary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .trendRow {
+    grid-template-columns: 1fr;
+  }
+}

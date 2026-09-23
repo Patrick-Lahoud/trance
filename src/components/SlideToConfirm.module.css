@@ -1,0 +1,96 @@
+.track {
+  position: relative;
+  height: 38px;
+  border-radius: 50px;
+  background: rgba(255, 107, 107, 0.14);
+  border: 1px solid rgba(255, 107, 107, 0.48);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  isolation: isolate;
+  cursor: grab;
+  user-select: none;
+  -webkit-app-region: no-drag;
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: inherit;
+  opacity: 0.42;
+  transition: width 0.05s linear, opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.fillHeld {
+  opacity: 0.6;
+}
+
+.thumb {
+  position: absolute;
+  top: 2px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(255, 255, 255, 0.16);
+  z-index: 2;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, left 0.05s linear;
+  touch-action: none;
+}
+
+.thumb:active {
+  cursor: grabbing;
+}
+
+/* While dragging, remove the old easing on the left position so the thumb
+   stays directly under the pointer. The normal transition remains in place
+   for the intentional spring-back after an incomplete swipe. */
+.thumbDragging {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+/* Held at the end — scale up + glow, the "you're about to confirm" state */
+.thumbHeld {
+  transform: scale(1.12);
+  box-shadow: 0 0 16px rgba(255, 107, 107, 0.75), 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Confirm fired — a quick pop */
+.thumbFired {
+  animation: snapPop 0.24s ease;
+}
+
+@keyframes snapPop {
+  0% {
+    transform: scale(1.18);
+  }
+  40% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
