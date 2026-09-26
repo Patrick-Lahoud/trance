@@ -65,4 +65,4 @@ involved. See the privacy policy in `public/privacy-policy.html`.
 
 ## License
 
-MIT
+GPL-3.0
