@@ -1,5 +1,10 @@
 # Trance
 
+![Downloads](https://img.shields.io/github/downloads/Patrick-Lahoud/trance/total?style=flat-square&labelColor=0a0a0a&color=4A9EFF)
+![Release](https://img.shields.io/github/v/release/Patrick-Lahoud/trance?style=flat-square&labelColor=0a0a0a&color=888888)
+![License](https://img.shields.io/github/license/Patrick-Lahoud/trance?style=flat-square&labelColor=0a0a0a&color=888888)
+![Platform](https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0a0a0a?style=flat-square)
+
 **Trance is an open-source desktop focus companion built for Windows using Electron, React, and TypeScript. It utilizes OS-level idle timers to provide activity-aware attention feedback.**
 
 It runs as a small always-on-top widget in the corner of your screen, quietly
@@ -65,4 +70,4 @@ involved. See the privacy policy in `public/privacy-policy.html`.
 
 ## License
 
-GPL-3.0
+MIT
