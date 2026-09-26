@@ -20,8 +20,8 @@ document.querySelectorAll('.trance-icon').forEach((host) => {
   host.classList.add('has-svg');
 });
 
-/* ---------- Download links (NSIS installer shipped beside the site) ---------- */
-const INSTALLER = './Trance-Setup-1.0.0.exe';
+/* ---------- Download links (installer served from GitHub Releases for public download counts) ---------- */
+const INSTALLER = 'https://github.com/Patrick-Lahoud/trance/releases/download/v1.0.0/Trance-Setup-1.0.0.exe';
 document.querySelectorAll('a[data-dl]').forEach((a) => {
   a.setAttribute('href', INSTALLER);
   a.setAttribute('download', '');

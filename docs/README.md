@@ -1,7 +1,7 @@
-# Trance Promotional Website (docs)
+# Trance Promotional Website (site-b)
 
 A production-ready, dependency-free promotional site for **Trance**, the Windows
-focus companion. Built as a fully isolated static site in `docs/`; nothing
+focus companion. Built as a fully isolated static site in `site-b/`; nothing
 outside this folder was modified.
 
 ## Run / deploy
@@ -10,11 +10,11 @@ Static files only, no build step, no dependencies.
 
 ```bash
 # local preview
-npx http-server docs -p 8080 -c-1
+npx http-server site-b -p 8080 -c-1
 # → http://127.0.0.1:8080
 ```
 
-Deploy the `docs/` folder to any static host (Vercel, Netlify, GitHub Pages,
+Deploy the `site-b/` folder to any static host (Vercel, Netlify, GitHub Pages,
 S3, nginx). To ship the installer from the site, copy the built
 `release/Trance Setup 1.0.0.exe` next to `index.html` as `Trance-Setup-1.0.0.exe`
 (the download buttons already point there and fall back to `#download`).
@@ -74,7 +74,7 @@ than invented:
 ## Files
 
 ```
-docs/
+site-b/
 ├── index.html        # all sections, real copy, one nav, one footer
 ├── styles.css        # design tokens ported from the app + full site styling
 ├── assets/icon.svg   # favicon from official icon geometry

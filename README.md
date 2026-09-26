@@ -23,7 +23,7 @@ they mean something.
   a 3-session moving average, computed and rendered entirely from local data.
 - **Local-first storage** (`electron/store.ts`) - sessions persist to a local
   JSON store. Nothing leaves the machine.
-- **Open-source website** (`docs/`) - a dependency-free static site built
+- **Open-source website** (`site-b/`) - a dependency-free static site built
   with vanilla JS and hand-drawn SVG charts, deployable to GitHub Pages.
 
 ## Tech stack
@@ -53,7 +53,7 @@ Requires Node 18+ and Windows 10/11.
 ├── electron/           # main process: tracker, store, preload bridge
 ├── src/                # React renderer: widget, dashboard, onboarding, ML
 ├── scripts/            # icon generation
-├── docs/               # the static promotional website (GitHub Pages)
+├── site-b/             # the static promotional website (GitHub Pages)
 └── public/             # static assets (app icon)
 ```
 
